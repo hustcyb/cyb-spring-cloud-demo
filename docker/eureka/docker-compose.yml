@@ -1,0 +1,25 @@
+version: '3'
+services:
+  eureka-server:
+    image: hustcyb/cyb-spring-cloud-eureka-server:1.0.0-SNAPSHOT
+    expose:
+      - "8761"
+
+  eureka-client:
+    image: hustcyb/cyb-spring-cloud-eureka-client:1.0.0-SNAPSHOT
+    expose:
+      - "8762"
+    volumes:
+      - ./client/application.yml:/data/cyb-spring-cloud-eureka-client/config/application.yml:ro
+    links:
+      - eureka-server
+
+  ribbon-service:
+    image: hustcyb/cyb-spring-cloud-ribbon-service:1.0.0-SNAPSHOT
+    ports:
+      - "8763:8763"
+    volumes:
+      - ./service/application.yml:/data/cyb-spring-cloud-ribbon-service/config/application.yml:ro
+    links:
+      - eureka-server
+      - eureka-client

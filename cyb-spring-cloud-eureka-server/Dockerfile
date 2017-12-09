@@ -1,0 +1,10 @@
+FROM hustcyb/oraclejdk
+ARG UNPACK_DIR
+ARG WORK_DIR
+ARG PACKAGE_FILE
+ARG JAR_FILE
+ADD ${PACKAGE_FILE} ${UNPACK_DIR}
+WORKDIR ${WORK_DIR}
+EXPOSE 8761
+ENV JAR_FILE ${JAR_FILE}
+CMD java -Djava.security.egd=file:/dev/./urandom -jar ${JAR_FILE}
