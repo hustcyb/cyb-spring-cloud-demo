@@ -9,5 +9,6 @@
   	<module>cyb-spring-cloud-eureka-client</module>
   	<module>cyb-spring-cloud-ribbon-service</module>
   	<module>cyb-spring-cloud-feign-service</module>
+  	<module>cyb-spring-cloud-ribbon-hystrix-service</module>
   </modules>
 </project>
