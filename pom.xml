@@ -8,5 +8,6 @@
   	<module>cyb-spring-cloud-eureka-server</module>
   	<module>cyb-spring-cloud-eureka-client</module>
   	<module>cyb-spring-cloud-ribbon-service</module>
+  	<module>cyb-spring-cloud-feign-service</module>
   </modules>
 </project>

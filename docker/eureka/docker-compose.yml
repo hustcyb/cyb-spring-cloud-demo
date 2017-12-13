@@ -10,7 +10,7 @@ services:
     expose:
       - "8762"
     volumes:
-      - ./client/application.yml:/data/cyb-spring-cloud-eureka-client/config/application.yml:ro
+      - ./eureka-client/application.yml:/data/cyb-spring-cloud-eureka-client/config/application.yml:ro
     links:
       - eureka-server
 
@@ -19,7 +19,17 @@ services:
     ports:
       - "8763:8763"
     volumes:
-      - ./service/application.yml:/data/cyb-spring-cloud-ribbon-service/config/application.yml:ro
+      - ./ribbon-service/application.yml:/data/cyb-spring-cloud-ribbon-service/config/application.yml:ro
+    links:
+      - eureka-server
+      - eureka-client
+
+  feign-service:
+    image: hustcyb/cyb-spring-cloud-feign-service:1.0.0-SNAPSHOT
+    ports:
+      - "8764:8764"
+    volumes:
+      - ./feign-service/application.yml:/data/cyb-spring-cloud-feign-service/config/application.yml:ro
     links:
       - eureka-server
       - eureka-client

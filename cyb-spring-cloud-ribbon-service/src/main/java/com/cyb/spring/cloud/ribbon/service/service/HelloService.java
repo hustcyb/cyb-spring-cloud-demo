@@ -12,7 +12,7 @@ public class HelloService {
 	private RestTemplate restTemplate;
 	
 	public String hello(String name) {
-		String url = "http://cyb-spring-cloud-eureka-client/home?name=" + name;
+		String url = "http://cyb-spring-cloud-eureka-client/hello?name=" + name;
 		return restTemplate.getForObject(url, String.class);
 	}
 }
