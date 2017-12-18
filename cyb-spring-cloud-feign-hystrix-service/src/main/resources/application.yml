@@ -1,0 +1,17 @@
+eureka:
+    client: 
+        serviceUrl:
+            defaultZone: http://localhost:8761/eureka/
+        
+server:
+    port: 8764
+    
+spring:
+    application:
+        name: cyb-spring-cloud-feign-hystrix-service
+        
+feign:
+    hystrix:
+        enabled: true
+    client:
+        hello: cyb-spring-cloud-eureka-client
