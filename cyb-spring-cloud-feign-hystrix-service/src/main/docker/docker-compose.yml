@@ -1,0 +1,25 @@
+version: '3'
+services:
+  eureka-server:
+    image: hustcyb/cyb-spring-cloud-eureka-server:1.0.0-SNAPSHOT
+    expose:
+      - 8761
+
+  eureka-client:
+    image: hustcyb/cyb-spring-cloud-eureka-client:1.0.0-SNAPSHOT
+    volumes:
+      - ./eureka-client/application.yml:/data/cyb-spring-cloud-eureka-client/config/application.yml:ro
+    expose:
+      - 8762
+    links:
+      - eureka-server
+
+  feign-hystrix-service:
+    image: hustcyb/cyb-spring-cloud-feign-hystrix-service:1.0.0-SNAPSHOT
+    volumes:
+      - ./feign-hystrix-service/application.yml:/data/cyb-spring-cloud-feign-hystrix-service/config/application.yml:ro
+    ports:
+      - "8764:8764"
+    links:
+      - eureka-server
+      - eureka-client

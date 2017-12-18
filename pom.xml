@@ -10,5 +10,6 @@
   	<module>cyb-spring-cloud-ribbon-service</module>
   	<module>cyb-spring-cloud-feign-service</module>
   	<module>cyb-spring-cloud-ribbon-hystrix-service</module>
+  	<module>cyb-spring-cloud-feign-hystrix-service</module>
   </modules>
 </project>
