@@ -1,0 +1,20 @@
+eureka:
+    client:
+        serviceUrl:
+            defaultZone: http://localhost:8761/eureka/
+            
+server:
+    port: 8765
+
+spring:
+    application:
+        name: cyb-spring-cloud-zuul-proxy
+        
+zuul:
+    routes:
+        ribbon-service:
+            path: /ribbon/*
+            serviceId: cyb-spring-cloud-ribbon-hystrix-service
+        feign-service:
+            path: /feign/*
+            serviceId: cyb-spring-cloud-feign-hystrix-service
