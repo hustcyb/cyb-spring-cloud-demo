@@ -1,0 +1,12 @@
+server:
+    port: 8767
+
+spring:
+    application:
+        name: cyb-spring-cloud-config-client
+    cloud:
+        config:
+            label: master
+            profile: dev
+            uri: http://localhost:8766/
+  

@@ -12,5 +12,7 @@
   	<module>cyb-spring-cloud-ribbon-hystrix-service</module>
   	<module>cyb-spring-cloud-feign-hystrix-service</module>
   	<module>cyb-spring-cloud-zuul-proxy</module>
+  	<module>cyb-spring-cloud-config-server</module>
+  	<module>cyb-spring-cloud-config-client</module>
   </modules>
 </project>

@@ -1,0 +1,18 @@
+version: '3'
+services:
+  config-server:
+    image: hustcyb/cyb-spring-cloud-config-server:1.0.0-SNAPSHOT
+    volumes:
+      - ./config-server/application.yml:/data/cyb-spring-cloud-config-server/config/application.yml:ro
+      - ./config-server/config:/data/config
+    ports:
+      - "8766:8766"
+
+  config-client:
+    image: hustcyb/cyb-spring-cloud-config-client:1.0.0-SNAPSHOT
+    volumes:
+      - ./config-client/bootstrap.yml:/data/cyb-spring-cloud-config-client/config/bootstrap.yml:ro
+    ports:
+      - "8767:8767"
+    links:
+      - config-server

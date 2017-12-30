@@ -1,0 +1,16 @@
+server:
+    port: 8766
+
+spring:
+    application:
+        name: cyb-spring-cloud-config-server
+        
+    cloud:
+        config:
+            label: master
+            server:
+                git:
+                    uri: file:///data/config
+                    searchPaths:
+                    username:
+                    password:
