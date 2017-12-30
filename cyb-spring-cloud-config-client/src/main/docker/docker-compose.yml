@@ -1,12 +1,19 @@
 version: '3'
 services:
+  eureka-server:
+    image: hustcyb/cyb-spring-cloud-eureka-server:1.0.0-SNAPSHOT
+    expose:
+      - 8761
+
   config-server:
     image: hustcyb/cyb-spring-cloud-config-server:1.0.0-SNAPSHOT
     volumes:
       - ./config-server/application.yml:/data/cyb-spring-cloud-config-server/config/application.yml:ro
       - ./config-server/config:/data/config
-    ports:
-      - "8766:8766"
+    expose:
+      - 8766
+    links:
+      - eureka-server
 
   config-client:
     image: hustcyb/cyb-spring-cloud-config-client:1.0.0-SNAPSHOT
@@ -15,4 +22,5 @@ services:
     ports:
       - "8767:8767"
     links:
+      - eureka-server
       - config-server

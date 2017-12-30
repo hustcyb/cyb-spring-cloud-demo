@@ -8,5 +8,12 @@ spring:
         config:
             label: master
             profile: dev
-            uri: http://localhost:8766/
+            # uri: http://localhost:8766/
+            discovery:
+                enabled: true
+                serviceId: cyb-spring-cloud-config-server
   
+eureka:
+    client:
+        serviceUrl:
+            defaultZone: http://localhost:8761/eureka/
