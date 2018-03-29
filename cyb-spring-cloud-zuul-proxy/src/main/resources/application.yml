@@ -18,3 +18,11 @@ zuul:
         feign-service:
             path: /feign/*
             serviceId: cyb-spring-cloud-feign-hystrix-service
+    ratelimit:
+        enabled: true
+        behind-proxy: true
+        default-policy: 
+            limit: 3
+            quota: 1000
+            refresh-interval: 60
+            type: origin
